@@ -13,7 +13,8 @@ def gen_exchange(path,
                  exclude_orbs=[],
                  Rcut=None,
                  use_cache=False,
-                 description=None):
+                 description=None,
+                 nproc=1):
     tbmodel=OpenmxWrapper(path, prefix)
     if tbmodel.non_collinear:
         Exchange=ExchangeNCL
@@ -37,7 +38,8 @@ prefix: {prefix}
             exclude_orbs=exclude_orbs,
             Rcut=Rcut,
             use_cache=use_cache,
-            description=description)
+            description=description,
+            nproc=nproc)
     exchange.run()
     print("\n")
     print("All calculation finsihed. The results are in TB2J_results directory.")

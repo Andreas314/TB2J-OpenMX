@@ -13,6 +13,8 @@ def run_openmx2J():
     parser.add_argument(
         '--prefix', help="prefix of the openmx files", default='openmx', type=str)
     parser.add_argument(
+        '--np', help="number of cpu cores to use in parallel, default: 1", default=1, type=int)
+    parser.add_argument(
         '--elements',
         help="elements to be considered in Heisenberg model",
         default=None,
@@ -83,7 +85,8 @@ def run_openmx2J():
         nz=args.nz,
         description=args.description,
         use_cache=args.use_cache,
-        exclude_orbs=args.exclude_orbs)
+        exclude_orbs=args.exclude_orbs,
+        nproc=args.np)
 
 if __name__ == "__main__":
     run_openmx2J()
